@@ -1,0 +1,86 @@
+@import '../config/Variable.scss';
+
+.modal-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: $black, $alpha: .3);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.modal-pop-up-container {
+    background-color: $white;
+    padding: 1rem;
+    color: $black;
+    border-radius: 1rem;
+    max-width: 20rem;
+    position: fixed;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    .modal-upload-button-container{
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+      text-align: center;
+    }
+}
+
+
+.wrapper{
+  
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  .file-upload{
+
+    height:200px;
+    width:200px;
+    border-radius: 100px;
+    position:relative;
+    
+    display:flex;
+    justify-content:center;
+    align-items: center;  
+
+    border:4px solid #FFFFFF;
+    overflow:hidden;
+    background-image: linear-gradient(to bottom, #2590EB 50%, #FFFFFF 50%);
+    background-size: 100% 200%;
+    transition: all 1s;
+    color: #FFFFFF;
+    font-size:100px;
+
+    input[type='file']{
+
+      height:200px;
+      width:200px;
+      position:absolute;
+      top:0;
+      left:0;
+      opacity:0;
+      cursor:pointer;
+
+    }
+
+    &:hover{
+
+      background-position: 0 -100%;
+
+      color:$blue-search;
+
+    }
+
+
+  }
+}

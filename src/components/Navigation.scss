@@ -1,0 +1,50 @@
+@import '../config/Variable.scss';
+
+.navigation-container {
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    background-color: $black;
+    padding: 1rem;
+    position: relative;
+}
+.example {
+    max-width: 300px;
+    display: flex;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid white;
+  float: left;
+  width: 80%;
+  background: $search-background;
+  &:focus {
+    outline: none;
+  }
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: $blue-search;
+  color: $white;
+  font-size: 17px;
+  border: 1px solid $blue-search;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: $blue-search-hover;
+  border: 1px solid $blue-search-hover;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}

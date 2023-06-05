@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { FileContainer } from './components/FileContainer';
+import { Navigation } from './components/Navigation';
+import { RefreshContext } from './context/RefreshContext';
+
+const queryClient = new QueryClient()
 
 function App() {
+  const [upload, setUpload] = useState(false)
+  const [filter, setFilter] = useState('`')
+
+  useEffect(()=> {
+    if(filter.length === 0 || !filter.match(/^.*[a-zA-Z0-9][^a-zA-Z0-9]*$/)) setFilter('`')
+  },[filter])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <RefreshContext.Provider value={{upload, setUpload, filter, setFilter}}>
+        <div className="">
+          <Navigation/>
+
+          <FileContainer/>
+
+        </div>
+      </RefreshContext.Provider>
+    </QueryClientProvider>
   );
 }
 

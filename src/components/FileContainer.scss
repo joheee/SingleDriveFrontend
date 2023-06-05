@@ -1,0 +1,9 @@
+@import '../config/Variable.scss';
+
+.file-container {
+    margin: 3rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap: 3rem;
+}
